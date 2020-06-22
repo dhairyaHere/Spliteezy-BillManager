@@ -1,0 +1,134 @@
+<app-myheader></app-myheader>
+
+
+<div class="container" style="background-color:white; margin-top: 20px; margin-bottom: 30px;">
+
+    <app-dashboard (sum)="amount_calc($event)"></app-dashboard>
+
+    <div class="row">
+        <!-- <ng-container *ngFor="let exp of expenses"> -->
+        <div class="column">
+            <div class="card">
+                <h3 style="text-decoration: underline; font-weight: 600; padding-bottom: 30px;">YOU OWE</h3>
+                <ng-container *ngFor="let exp of expenses">
+                    <ng-container class="tgf" *ngIf="(exp.given_by==username)">
+                        <ng-container *ngIf = "(exp.amount &lt; '0')">
+                            <div id="{{exp.given_to}}" (click)="ltog1(exp.given_to)" class="tgf" style="cursor: pointer;">
+                                <div class="person">
+                                    <div class="pname">{{exp.given_to}}</div>
+                                    <div class="oamount">{{0-exp.amount | currency:'INR'}}</div>
+                                </div>
+                            </div>
+                            <div class="tgp" id="{{exp.given_to + 'div'}}">
+                                <button type="button" class="btn btn-outline-info" (click)="navadd(exp.given_to)"> <b>ADD EXPENSE</b>
+                                </button>
+                                <button type="button" class="btn btn-outline-info" (click)="navsettle(exp.given_to)">
+                                    <b>SETTLE UP </b> </button>
+                            </div>
+                     </ng-container> 
+
+
+
+                    </ng-container>
+                    <!-- <ng-template #elsepartouter></ng-template> -->
+                </ng-container>
+
+               
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card">
+                <h3 style="text-decoration: underline; font-weight: 600; padding-bottom: 30px;">YOU GET BACK</h3>
+                <ng-container *ngFor="let exp of expenses">
+                    <!-- h{{exp.given_by}}hu{{username}}u -->
+                    <!-- {{exp.given_to}} -->
+                    <!-- {{exp.given_by==username}} -->
+                    <!-- {{exp.amount==100}} -->
+                        <ng-container class="tgf"  *ngIf='exp.given_by==username'>
+                               <ng-container *ngIf="exp.amount &gt; 0 ">
+                            <div id="{{exp.given_to}}" (click)="ltog1(exp.given_to)" class="tgf" style="cursor: pointer;">
+                                <div class="person">
+                                    <div class="pname">{{exp.given_to}}</div>
+                                    <div class="levana">{{exp.amount | currency:'INR'}}</div>
+                                </div>
+                            </div>
+                            <div class="tgp" id="{{exp.given_to + 'div'}}">
+                                <button type="button" class="btn btn-outline-info" (click)="navadd(exp.given_to)"> <b>ADD EXPENSE</b>
+                                </button>
+                                <button type="button" class="btn btn-outline-info" (click)="navsettle(exp.given_to)"  >
+                                    <b>SETTLE UP </b> </button>
+                            </div>
+                               </ng-container>
+                        <!-- <ng-template #checking>>{{exp.amount}}{{exp.amount>0}}</ng-template> -->
+                        </ng-container>
+                        <!-- <ng-template #checking12>>{{exp.amount}}hiiiiii{{exp.amount>0}}</ng-template> -->
+                    </ng-container>
+    
+                <!-- <div id="rflip1" class="tgf" (click)="rtog1()">
+                    <div class="person">
+                        <div class="pname">Harsh Jhunjhunwaala</div>
+                        <div class="levana">Rs 100 </div>
+                    </div>
+                </div>
+                <div id="rpanel1" class="tgp">
+                    <button type="button" class="btn btn-outline-info" (click)="navadd()"> <b>ADD EXPENSE</b> </button>
+                    <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal">
+                        <b>SETTLE UP </b> </button>
+                 </div> -->
+
+
+
+
+            </div>
+        </div>
+        
+    </div>
+    
+
+    <!-- The Modal -->
+    <ng-container *ngFor="let exp of expenses">
+    <div class="modal fade" id="{{exp.given_to}}">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title"><b>ADD AN EXPENSE</b></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    With <b>you</b> and {{exp.given_to}} <br><br>
+
+                    <b>AMOUNT TO SETTLE UP</b><br>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">
+                                <i class="fa fa-rupee"></i>
+                            </div>
+                        </div>
+                        <input id="amount_to_settle_up" name="amount" placeholder="Amount Paid" type="text"
+                            required="required" class="form-control">
+                        <div class="input-group-append">
+                            <div class="input-group-text">.00</div>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="button" class="btn btn-info" style="align-items: center;"> <b>RECORD A CASH
+                            PAYMENT</b> </button>
+
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</ng-container>
+
+</div>

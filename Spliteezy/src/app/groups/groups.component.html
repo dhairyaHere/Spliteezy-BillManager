@@ -1,0 +1,72 @@
+<app-myheader></app-myheader>
+
+<div class="container" style="background-color:white; margin-top: 20px; margin-bottom: 30px;">
+
+    
+    <h2 style="color:black">D A S H B O A R D</h2>
+    <ul class="nav nav-tabs nav-justified" >
+      <li class="nav-item" style="border: 3px solid black;">
+        <a class="nav-link" routerLink="../Friends"><b>FRIENDS</b></a>
+      </li>
+      
+      <li class="nav-item" style="border: 3px solid black;">
+            <a class="nav-link active" routerLink="../Groups"><b>GROUPS</b></a>
+ 
+      <li class="nav-item" style="border: 3px solid black;">
+        <a class="nav-link" href="#"><b>ACTIVITIES</b></a>
+      </li>
+      
+    </ul>
+    
+    
+    <section class="stats py-lg-5 py-md-3 py-sm-3 py-3 " id="stats" >
+                  
+        <div class="row stats-info">
+                <div class="col-md-3 col-sm-6 col-6 stats-grid-1" >
+                    <div class="stat-info">
+                       <h5 class="pt-2"><b>NET BALANCE</b></h5>
+                    </div>
+                    <div class="counter" ><b>Rs. 1000</b></div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-6 stats-grid-2" >
+                    <div class="stat-info">
+                        <h5 class="pt-2" > <b>YOU OWE </b></h5>
+                    </div>
+                    <div class="counter" style="color: #f01717;" ><b>Rs. 1000</b></div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-6 stats-grid-3" style="float: right; width: 33.33%;">
+                    <div class="stat-info">
+                        <h5 class="pt-2"> <b>YOU ARE OWED</b> </h5>
+                    </div>
+                    <div class="counter" style="color: #50b93b;"><b>Rs. 2000</b></div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-6 stats-grid-4">
+                        <div class=" stats-grid">
+                            <div class="btnstyle">
+                                <button type="button" class="btn btn-outline-info" (click)="myNewGroup()" > <b>CREATE NEW GROUP</b> </button>
+                                <!-- <button type="button" class="btn btn-outline-info"> <b>SETTLE UP </b> </button> -->
+                                </div>
+                        </div>
+                     </div>
+
+        </div>
+               
+    </section>
+
+    
+    <div class="list-group" >
+        <div class="mystyle">
+            <a href="#" class="list-group-item list-group-item-action"><b>Group 1</b></a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-info"><b>Group 2</b></a>
+            <a href="#" class="list-group-item list-group-item-action "><b>Group 3 </b> </a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-info"><b>Group 4 </b> </a>
+            <a href="#" class="list-group-item list-group-item-action "><b>Group 5</b></a>
+            
+    </div>
+</div>
+  
+
+</div>

@@ -1,0 +1,120 @@
+<app-myheader></app-myheader>
+
+<div class="container" id="head" >
+
+    <div class="jumbotron"  >
+        <b><h2>GROUP DETAILS</h2></b>
+        <p>
+            Fill the details of your new group and click on Create Button to continue!  
+        </p>
+    </div>
+    
+</div>
+
+<div class="container" id="below" >
+    <!-- <form> -->
+      <div class="form-group row">
+        <label for="new_grp" class="col-4 col-form-label" style="margin-top: 30px;"><b>Give it a Name</b></label> 
+        <div class="col-8">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <div class="input-group-text" style="margin-top: 30px;">
+                <i class="fa fa-group"></i>
+              </div>
+            </div> 
+            <input id="new_grp" name="new_grp" placeholder="Ex: Gucci Gang" style="margin-top: 30px;" type="text" class="form-control" required="required">
+          </div>
+        </div>
+      </div>
+  
+      <div class="form-group row" style="margin-top: 30px;">
+            <div class="input-group">    
+        <label for="nom" class="col-4 col-form-label"  ><b>Number Of Members</b></label> 
+        
+
+            <select id="myid" name="nom" class="custom-select" required="required" >
+                
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+
+            
+<!-- 
+        <div class="form-group row">
+        <label for="p1" class="col-4 col-form-label">Name</label> 
+        <div class="col-8">
+        <input id="p" name="p" placeholder="Name of the participant" type="text" class="form-control" required="required">
+        </div>
+    </div>  -->
+<!-- <form> -->
+
+    <div class="input-group-append"> 
+        <button id="sub" class="btn btn-info"  style="margin-left:5px ;" (click)="addinfo()"><b>Add  Participants</b></button>
+    </div> 
+</div>
+</div>
+
+<div class="form-group row" style="margin-top: 30px;">
+    <div class="input-group">    
+<label for="nom" class="col-4 col-form-label" ><b>Currency</b></label> 
+<select class="modernized" name="user[default_currency]" id="user_default_currency"><option selected="selected" value="INR">INR (₹)</option>
+    <option value="AFN">AFN (Afs)</option>
+    <option value="ALL">ALL (L)</option>
+    <option value="AMD">AMD (AMD)</option>
+    <option value="ANG">ANG (NAf)</option>
+    <option value="AOA">AOA (Kz)</option>
+    <option value="ARS">ARS ($)</option>
+    <option value="AUD">AUD ($)</option>
+    <option value="AWG">AWG (Afl.)</option>
+    <option value="AZN">AZN (m.)</option>
+    <option value="BAM">BAM (KM)</option>
+    <option value="BBD">BBD ($)</option>
+    <option value="BDT">BDT (Tk)</option>
+    
+    <option value="IQD">IQD (IQD)</option>
+    <option value="NIO">NIO (C$)</option>
+    <option value="NOK">NOK (kr)</option>
+    <option value="NPR">NPR (Rs. )</option>
+    <option value="NZD">NZD ($)</option>
+    <option value="OMR">OMR (OMR)</option>
+    <option value="TZS">TZS (TZS)</option>
+    <option value="UAH">UAH (₴)</option>
+    <option value="UGX">UGX (USh)</option>
+    <option value="USD">USD ($)</option>
+    <option value="UYU">UYU ($)</option>
+    <option value="UZS">UZS (UZS)</option>
+    <option value="VEF">VEF (Bs)</option>
+    <option value="VND">VND (₫)</option>
+    <option value="VUV">VUV (Vt)</option>
+    <option value="WST">WST (WS$)</option>
+    <option value="XAF">XAF (CFA)</option>
+    <option value="XCD">XCD (EC$)</option>
+    <option value="XOF">XOF (CFA)</option>
+    <option value="XPF">XPF (F)</option>
+    <option value="YER">YER (YER)</option>
+    <option value="ZAR">ZAR (R)</option>
+    <option value="ZMW">ZMW (ZMW)</option></select>
+</div>
+</div>
+-----------------------------------------------------------------------------------<br><br>
+<div class="form-group row" style="margin-top: 30px;">
+   <h2 id="hid" class="showhit" style="display: none; text-decoration: underline;">GROUP MEMBERS' DETAILS</h2> 
+</div>
+
+<div id="holder"></div>
+
+
+<div class="form-group row" style="margin-top: 30px;">
+<div class="offset-4 col-8">
+<button name="submit" type="submit" class="btn btn-primary"><b>Create Group</b></button>
+</div>
+</div>
+<!-- </form> -->
+</div>

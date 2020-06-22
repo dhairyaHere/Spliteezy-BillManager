@@ -1,0 +1,97 @@
+<div class="container shadow" style="width: 550px;margin-top: 100px;background-color: white;">
+        <article class="card-body mx-auto" style="max-width: inherit;max-height: 600px">
+            <h4 class="card-title mt-3 text-center">Update
+                Account</h4>
+            <div class="text-danger">{{errormsg}}</div>
+            <form #register="ngForm" (ngSubmit)="updateuser()">
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i>
+                        </span>
+                    </div>
+                    <input [disabled]="disabled" name="username" class="form-control" placeholder="Username" type="text" [(ngModel)]="user.username"
+                        required minlength="6" #username_ctl="ngModel"><br/>
+                    <div *ngIf=" username_ctl.invalid && (username_ctl.dirty || username_ctl.touched)">
+                        <div class="text-danger" *ngIf="username_ctl.errors.required;"> Userame is required.
+                        </div>
+                        <div class="text-danger" *ngIf="username_ctl.errors.minlength"> Username must be at
+                            least 6 characters long. </div>
+                    </div>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i>
+                        </span>
+                    </div>
+                    <input name="fullname" class="form-control" placeholder="Full name" type="text" [(ngModel)]="user.fullname"
+                        #fullname_ctl="ngModel" required><br/>
+                    <div *ngIf="fullname_ctl.invalid && (fullname_ctl.dirty || fullname_ctl.touched)">
+                        <div class="text-danger" *ngIf="fullname_ctl.errors.required">
+                            Full name is required.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-envelope"></i>
+                        </span>
+                    </div>
+                    <input name="email" class="form-control" placeholder="Email address" type="email" [(ngModel)]="user.email"
+                        [email]=true #email_ctl="ngModel" required><br/>
+                    <div *ngIf="email_ctl.invalid && (email_ctl.dirty || email_ctl.touched)">
+                        <div class="text-danger" *ngIf="email_ctl.errors.required">
+                            Email is required.
+                        </div>
+                        <div class="text-danger" *ngIf="email_ctl.errors.email">
+                            Enter
+                            proper Emailid. </div>
+                    </div>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone"></i>
+                        </span>
+                    </div>
+                    <select class="custom-select" style="max-width: 80px;">
+                        <option selected="" disabled="true">+91
+                        </option>
+                    </select>
+                    <input name="mobile" class="form-control" placeholder="Phone number" type="number" [(ngModel)]="user.mobile"
+                        required maxlength="10" #mobile_ctl="ngModel"><br/>
+                    <div *ngIf="mobile_ctl.invalid && (mobile_ctl.dirty || mobile_ctl.touched)">
+                        <div class="text-danger" *ngIf="mobile_ctl.errors.required">
+                            Mobile is required.
+                        </div>
+                        <div class="text-danger" *ngIf="mobile_ctl.errors.maxlength"> Enter
+                            proper Mobile number. </div>
+                    </div>
+                </div>
+                <div class="form-group input-group">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i>
+                            </span>
+                        </div>
+                        <input name="password" class="form-control" placeholder="Create password" type="password"
+                            [(ngModel)]="password" required minlength="6" #password_ctl="ngModel"><br/>
+                        <div *ngIf="password_ctl.invalid && (password_ctl.dirty || password_ctl.touched)">
+                            <div class="text-danger" *ngIf="password_ctl.errors.required">Password is
+                                required. </div>
+                        </div>
+                    </div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i>
+                            </span>
+                        </div>
+                        <input name="repassword" class="form-control" placeholder="Repeat password" type="password"
+                            [(ngModel)]="repassword" required minlength="6">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" [disabled]="!register.form.valid" class="btn btn-primary btn-block">
+                            Update </button>
+                    </div>
+                </div>
+            </form>
+        </article>
+    </div>

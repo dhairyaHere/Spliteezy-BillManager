@@ -1,0 +1,12 @@
+implement settle up logic-done
+implement activities tab-not done
+search bar logic
+change header and create logo with proper heading
+change login module css
+after adding expense redirect to friends page 
+show alerts everywhere where required/necessary - expense added successfully.
+contact us
+if time permits then send email to user on adding expense or settle up
+
+remove alerts
+

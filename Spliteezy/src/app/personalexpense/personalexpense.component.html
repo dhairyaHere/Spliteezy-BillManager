@@ -1,0 +1,148 @@
+<app-myheader></app-myheader>
+
+<div class="container" id="head" >
+
+    <div class="jumbotron" >
+        <b><h2>ADD EXPENSE</h2><h4>Between &nbsp;<b>you&nbsp;</b> and &nbsp;<b>&nbsp;{{fname}}</b></h4></b>
+        <p>
+            Easily add the expenses made by you or your friend! We are here for you to do all the necessary calculations and give you the final amount ! 
+        </p>
+    </div>
+</div>
+
+<div class="container" id="below" >
+<form #expenseForm="ngForm">
+    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="expenseService.selectedExpenses._id">
+    
+    <div class="form-group row" style="margin-top: 15px; display: none;" >
+      <label class="col-4 col-form-label" for="payer" style="margin-top: 30px;">Paid By</label> 
+      <div class="col-8" style="margin-top: 30px;">
+        <!-- <select id="payer" name="payer" required="required" class="custom-select">
+          <option value="0">Choose the payer...</option>
+          <option value="Dhairya">Dhairya</option>
+          <option value="Viral">Viral</option>
+          <option value="Harsh">Harsh</option>
+        </select> -->
+        <input id="given_by" name="given_by" #given_by="ngModel" [(ngModel)]="expenseService.selectedExpenses.given_by" placeholder="Enter Payer Name"  type="text"  class="form-control"> 
+      </div>
+    </div>
+
+    <div class="form-group row" style="margin-top: 15px;display: none;">
+        <label class="col-4 col-form-label" for="given_to" style="margin-top: 30px;">Given To</label> 
+        <div class="col-8" style="margin-top: 30px;">
+          
+          <input id="given_to" name="given_to" #given_to="ngModel" [(ngModel)]="expenseService.selectedExpenses.given_to" placeholder="Pay for"  type="text"  class="form-control"> 
+        </div>
+      </div>
+
+    <div class="form-group row" style="margin-top: 30px; padding-top: 50px;">
+      <label for="amount" class="col-4 col-form-label" >How Much ?</label> 
+      <div class="col-8">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fa fa-rupee"></i>
+            </div>
+          </div> 
+          <input id="amount" name="amount" #amount="ngModel" [(ngModel)]="expenseService.selectedExpenses.amount" placeholder="Amount Paid" type="text" required="required" class="form-control"> 
+          <div class="input-group-append">
+            <div class="input-group-text">.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row" style="margin-top: 30px;">
+      <label class="col-4 col-form-label" >Split Mode</label> 
+      <div class="col-8">
+        <div class="custom-controls-stacked">
+          <div class="custom-control custom-radio">
+            <input name="mode" id="split_0"  type="radio" [(ngModel)]="mode" class="custom-control-input"  value="equal" aria-describedby="splitHelpBlock" required="required" checked> 
+            <label for="split_0" class="custom-control-label" >Paid by <b>you</b> and Split Equally between both</label>
+          </div>
+        </div>
+
+        <div class="custom-controls-stacked">
+          <div class="custom-control custom-radio">
+            <input name="mode" id="split_1" type="radio" [(ngModel)]="mode" class="custom-control-input"  value="loss_equal" aria-describedby="splitHelpBlock" required="required" > 
+            <label for="split_1" class="custom-control-label" >Paid by <b>{{fname}}</b> and Split Equally :| </label>
+          </div>
+        </div>
+
+        <div class="custom-controls-stacked">
+                <div class="custom-control custom-radio">
+                  <input name="mode" id="split_2" type="radio" [(ngModel)]="mode" class="custom-control-input"  value="loss" aria-describedby="splitHelpBlock" required="required" > 
+                  <label for="split_2" class="custom-control-label" >You owe him/her the full amount :(</label>
+                </div>
+        </div>
+
+        <div class="custom-controls-stacked">
+                <div class="custom-control custom-radio">
+                  <input name="mode" id="split_3" type="radio" [(ngModel)]="mode" class="custom-control-input"  value="profit" aria-describedby="splitHelpBlock" required="required" > 
+                  <label for="split_3" class="custom-control-label" >You get back the full amount :)</label>
+                </div>
+        </div>
+
+        
+
+        <!-- <div class="custom-controls-stacked">
+          <div class="custom-control custom-radio">
+            <input name="split" id="split_1" type="radio" class="custom-control-input" (click)="showtab()" value="custom" aria-describedby="splitHelpBlock" required="required"> 
+            <label for="split_1" class="custom-control-label" style="margin-top: 20px;">Split Differently</label>
+          </div>
+      </div>  -->
+  
+        
+        <span id="splitHelpBlock" class="form-text text-muted" style="margin-top: 10px;">Select the appropriate mode to split the amount between <b> you </b> and <b>{{fname}}</b> !</span>
+      </div>
+    </div>
+  
+    
+    
+  
+  
+    <div class="form-group row"style="margin-top: 30px;">
+      <label for="desc" class="col-4 col-form-label" >What For ?</label> 
+      <div class="col-8">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fa fa-sticky-note"></i>
+            </div>
+          </div> 
+          <input id="desc" name="desc" placeholder="Description about the expense " type="text" class="form-control" >
+        </div>
+      </div>
+    </div>
+    <div class="form-group row" style="margin-top: 30px;">
+      <label for="doe" class="col-4 col-form-label" >When ?</label> 
+      <div class="col-8">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fa fa-calendar-times-o"></i>
+            </div>
+          </div> 
+          <input id="doe" name="doe" placeholder="Date of expenditure" type="date" class="form-control"> 
+          <div class="input-group-append">
+            <div class="input-group-text">DD/MM/YYYY</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  
+    <div class="form-group row"style="margin-top: 30px;">
+      <div class="offset-4 col-8">
+        <!-- <button name="submit" type="submit" class="btn btn-primary" >Add Expense</button> -->
+      
+        <button class="btn btn-danger" type="button" (click)="resetForm(expenseForm)">Reset</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button class="btn btn-info" type="submit" (click)="onSubmit(expenseForm)" [disabled]="!expenseForm.valid">Add Expense</button>
+
+      
+      </div>
+    </div>
+  </form>
+  
+
+</div>

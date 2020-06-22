@@ -1,0 +1,281 @@
+<app-myheader></app-myheader>
+
+<div class="container" id="head" >
+
+    <div class="jumbotron" >
+        <b><h2>ADD EXPENSE</h2><h4> [GROUP NAME]</h4></b>
+        <p>
+            Easily add and manage the expenses made by you or any other member of your group! We are here for you to do all the necessary calculations and give you the final amount ! 
+        </p>
+    </div>
+</div>
+
+<div class="container" id="below" >
+<form>
+    <div class="form-group row" style="margin-top: 15px;">
+      <label class="col-4 col-form-label" for="payer" style="margin-top: 30px;">Paid By</label> 
+      <div class="col-8" style="margin-top: 30px;">
+        <select id="payer" name="payer" required="required" class="custom-select">
+          <option value="0">Choose the payer...</option>
+          <option value="Dhairya">Dhairya</option>
+          <option value="Viral">Viral</option>
+          <option value="Harsh">Harsh</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-group row" style="margin-top: 30px;">
+      <label for="amount" class="col-4 col-form-label" >How Much ?</label> 
+      <div class="col-8">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fa fa-rupee"></i>
+            </div>
+          </div> 
+          <input id="amount" name="amount" placeholder="Amount Paid" type="text" required="required" class="form-control"> 
+          <div class="input-group-append">
+            <div class="input-group-text">.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group row" style="margin-top: 30px;">
+      <label class="col-4 col-form-label" >Split Mode</label> 
+      <div class="col-8">
+        <div class="custom-controls-stacked">
+          <div class="custom-control custom-radio">
+            <input name="split" id="split_0" type="radio" class="custom-control-input" (click)="hidetab()"(click)="showtabs()" value="equal" aria-describedby="splitHelpBlock" required="required" checked> 
+            <label for="split_0" class="custom-control-label" >Split Equally among everyone</label>
+          </div>
+        </div>
+        <div class="custom-controls-stacked">
+          <div class="custom-control custom-radio">
+            <input name="split" id="split_1" type="radio" class="custom-control-input" (click)="showtab()" value="custom" aria-describedby="splitHelpBlock" required="required"> 
+            <label for="split_1" class="custom-control-label" style="margin-top: 20px;">Split Differently</label>
+          </div>
+      </div> 
+  
+        
+        <span id="splitHelpBlock" class="form-text text-muted" style="margin-top: 10px;">If the amount is to be divided unequally, specify how much does each member owe !</span>
+      </div>
+    </div>
+  
+    <div class="container" style="width: 75%;margin-bottom: 35px; display: none;" id="random">
+  
+      
+          <ul class="nav nav-pills nav-justified" role="tablist" style="border: 2px solid black;">
+                  <li class="nav-item" >
+                    <a class="nav-link active " href="#equally" role="tab" data-toggle="tab" style="color: black;"><b>EQUALLY</b></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link " href="#amnt" role="tab" data-toggle="tab" style="color: black;"><b>CUSTOM SPLIT</b></a>
+                  </li>
+                  
+                </ul>
+                
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div role="tabpanel" class="tab-pane fade in active" id="equally">
+                      
+    <ul class="list-group list-group-flush" >
+          <li class="list-group-item">
+            <!-- Default checked -->
+            <div class="custom-control custom-checkbox">
+              <input name="ckb" type="checkbox" class="custom-control-input" id="check1" checked>
+              <label class="custom-control-label" for="check1">Member 1</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <!-- Default checked -->
+            <div class="custom-control custom-checkbox">
+              <input name="ckb" type="checkbox" class="custom-control-input" id="check2" checked>
+              <label class="custom-control-label" for="check2">Member 2</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <!-- Default checked -->
+            <div class="custom-control custom-checkbox">
+              <input name="ckb" type="checkbox" class="custom-control-input" id="check3" checked>
+              <label class="custom-control-label" for="check3">Member 3</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <!-- Default checked -->
+            <div class="custom-control custom-checkbox">
+              <input name="ckb" type="checkbox" class="custom-control-input" id="check4" checked>
+              <label class="custom-control-label" for="check4">Member 4</label>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <!-- Default checked -->
+            <div class="custom-control custom-checkbox">
+              <input name="ckb" type="checkbox" class="custom-control-input" id="check5" checked>
+              <label class="custom-control-label" for="check5">Member 5</label>
+            </div>
+          </li>
+        </ul>
+          
+  
+                  </div>
+                  <div role="tabpanel" class="tab-pane fade" id="amnt">
+                                        
+    <ul class="list-group list-group-flush" >
+          
+        <li class="list-group-item">
+            <!-- Default checked -->
+            <!-- <ng-container> -->
+            <div class="custom-control custom-checkbox">
+              <input #chkenable name="ackb" type="checkbox" class="custom-control-input" id="acheck1" (change)="testing1()" checked>
+              <label class="custom-control-label" for="acheck1">Member 1</label>
+            </div>
+            <br>
+            <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-rupee"></i>
+                    </div>
+                  </div> 
+                  <input id="amount1" name="amount" placeholder="Amount Paid" type="text" [disabled]="isDisabled1" required="required"  class="form-control" > 
+                  <div class="input-group-append">
+                    <div class="input-group-text">.00</div>
+                  </div>
+            </div>
+            <!-- </ng-container> -->
+          </li>
+
+
+          <li class="list-group-item">
+            <!-- Default checked -->
+            <div class="custom-control custom-checkbox">
+              <input name="ackb" type="checkbox" class="custom-control-input" id="acheck2" checked (change)="testing2()" checked>
+              <label class="custom-control-label" for="acheck2">Member 2</label>
+            </div>
+  
+            <br>
+            <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-rupee"></i>
+                    </div>
+                  </div> 
+                  <input id="amount2" name="amount" placeholder="Amount Paid" type="text" required="required" [disabled]="isDisabled2" class="form-control" > 
+                  <div class="input-group-append">
+                    <div class="input-group-text">.00</div>
+                  </div>
+                </div>
+  
+          </li>
+          <li class="list-group-item">
+            <!-- Default checked -->
+            <div class="custom-control custom-checkbox">
+              <input name="ackb" type="checkbox" class="custom-control-input" id="acheck3" checked (change)="testing3()">
+              <label class="custom-control-label" for="acheck3">Member 3</label>
+            </div>
+  
+            <br>
+            <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-rupee"></i>
+                    </div>
+                  </div> 
+                  <input id="amount3" name="amount" placeholder="Amount Paid" type="text" required="required" [disabled]="isDisabled3" class="form-control" > 
+                  <div class="input-group-append">
+                    <div class="input-group-text">.00</div>
+                  </div>
+                </div>
+  
+          </li>
+          <li class="list-group-item">
+            <!-- Default checked -->
+            <div class="custom-control custom-checkbox">
+              <input name="ackb" type="checkbox" class="custom-control-input" id="acheck4" checked (change)="testing4()">
+              <label class="custom-control-label" for="acheck4">Member 4</label>
+            </div>
+  
+            <br>
+            <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-rupee"></i>
+                    </div>
+                  </div> 
+                  <input id="amount4" name="amount" placeholder="Amount Paid" type="text" required="required" [disabled]="isDisabled4" class="form-control" > 
+                  <div class="input-group-append">
+                    <div class="input-group-text">.00</div>
+                  </div>
+                </div>
+  
+          </li>
+          <li class="list-group-item">
+            <!-- Default checked -->
+            <div class="custom-control custom-checkbox">
+              <input name="ackb" type="checkbox" class="custom-control-input" id="acheck5" checked (change)="testing5()">
+              <label class="custom-control-label" for="acheck5">Member 5</label>
+            </div>
+  
+            <br>
+            <div class="input-group">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fa fa-rupee"></i>
+                    </div>
+                  </div> 
+                  <input id="amount5" name="amount" placeholder="Amount Paid" type="text" required="required" class="form-control" [disabled]="isDisabled5"> 
+                  <div class="input-group-append">
+                    <div class="input-group-text">.00</div>
+                  </div>
+                </div>
+  
+          </li>
+        </ul>
+    
+        </div>
+                  
+        </div>
+    </div>
+  
+    
+  
+  
+    <div class="form-group row"style="margin-top: 30px;">
+      <label for="desc" class="col-4 col-form-label" >What For ?</label> 
+      <div class="col-8">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fa fa-sticky-note"></i>
+            </div>
+          </div> 
+          <input id="desc" name="desc" placeholder="Description about the expense " type="text" class="form-control" required="required">
+        </div>
+      </div>
+    </div>
+    <div class="form-group row" style="margin-top: 30px;">
+      <label for="doe" class="col-4 col-form-label" >When ?</label> 
+      <div class="col-8">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fa fa-calendar-times-o"></i>
+            </div>
+          </div> 
+          <input id="doe" name="doe" placeholder="Date of expenditure" type="date" class="form-control"> 
+          <div class="input-group-append">
+            <div class="input-group-text">DD/MM/YYYY</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  
+    <div class="form-group row"style="margin-top: 30px;">
+      <div class="offset-4 col-8">
+        <button name="submit" type="submit" class="btn btn-primary" >Add Expense</button>
+      </div>
+    </div>
+  </form>
+  
+
+</div>

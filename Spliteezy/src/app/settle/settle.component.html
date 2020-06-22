@@ -1,0 +1,81 @@
+<app-myheader></app-myheader>
+
+<div class="container" id="head" >
+
+    <div class="jumbotron" >
+        <b><h2>SETTLE UP</h2><h4>Between <b>you</b> and {{fname}}</h4></b>
+        <p>
+            Want to Settle up the payment? After you pay or get the money that you are owed, settle up the dues and record it for future reference!
+        </p>
+    </div>
+</div>
+
+<div class="container" id="below" >
+<form #expenseForm="ngForm">
+    <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="expenseService.selectedExpenses._id">
+    
+    <div class="form-group row" style="margin-top: 15px;">
+      <label class="col-4 col-form-label" for="payer" style="margin-top: 30px;">Settled up with :</label> 
+      <div class="col-8" style="margin-top: 30px;">
+        <input id="given_by" name="given_by" #given_by="ngModel" [(ngModel)]="expenseService.selectedExpenses.given_by" placeholder="Enter Payer Name"  type="text" required="required" class="form-control"> 
+      </div>
+    </div>
+
+    <div class="form-group row" style="margin-top: 15px;">
+        <label class="col-4 col-form-label" for="given_to" style="margin-top: 30px;">Settled up by :</label> 
+        <div class="col-8" style="margin-top: 30px;">
+          <input id="given_to" name="given_to" #given_to="ngModel" [(ngModel)]="expenseService.selectedExpenses.given_to" placeholder="Pay for"  type="text" required="required" class="form-control"> 
+        </div>
+      </div>
+
+    <div class="form-group row" style="margin-top: 30px;">
+      <label for="amount" class="col-4 col-form-label" >Amount to Settle Up</label> 
+      <div class="col-8">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fa fa-rupee"></i>
+            </div>
+          </div> 
+          <input id="amount" name="amount" #amount="ngModel" [(ngModel)]="expenseService.selectedExpenses.amount" placeholder="Amount Paid" type="text" required="required" class="form-control"> 
+          <div class="input-group-append">
+            <div class="input-group-text">.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  
+    <div class="form-group row" style="margin-top: 30px;">
+      <label for="doe" class="col-4 col-form-label" >When ?</label> 
+      <div class="col-8">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <i class="fa fa-calendar-times-o"></i>
+            </div>
+          </div> 
+          <input id="doe" name="doe" placeholder="Date of expenditure" type="date" class="form-control"> 
+          <div class="input-group-append">
+            <div class="input-group-text">DD/MM/YYYY</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  
+    <div class="form-group row"style="margin-top: 30px;">
+      <div class="offset-4 col-8">
+        <!-- <button name="submit" type="submit" class="btn btn-primary" >Add Expense</button> -->
+      
+        <button class="btn btn-primary" type="button" (click)="resetForm(expenseForm)">Clear</button>
+        <button class="btn btn-info" type="submit" (click)="onSubmit(expenseForm)" [disabled]="!expenseForm.valid">Record a Cash Payment</button>
+
+      
+      </div>
+    </div>
+  </form>
+  
+
+</div>

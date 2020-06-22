@@ -1,0 +1,58 @@
+
+<app-searchbar></app-searchbar>
+
+    <h2 style="color:black;">D A S H B O A R D</h2>
+    <ul class="nav nav-tabs nav-justified" >
+      <li class="nav-item" style="border: 3px solid black;">
+        <a class="nav-link active " routerLink="../Friends" ><b>FRIENDS</b></a>
+      </li>
+      
+      <!-- <li class="nav-item" style="border: 3px solid black;">
+            <a class="nav-link" routerLink="../Groups"><b>GROUPS</b></a>
+      </li>
+      <li class="nav-item" style="border: 3px solid black;">
+        <a class="nav-link" href="#"><b>ACTIVITIES</b></a>
+      </li>
+       -->
+    </ul>
+    
+    
+    <section class="stats py-lg-5 py-md-3 py-sm-3 py-3 " id="stats" >
+                  
+        <div class="row stats-info">
+                <div class="col-md-3 col-sm-6 col-6 stats-grid-1" >
+                    <div class="stat-info">
+                       <h5 class="pt-2"><b>NET BALANCE</b></h5>
+                    </div>
+                    <ng-container  *ngIf="net&gt;0; else loss" ><b class="counter" style="color: #50b93b;">Rs. {{net}}</b></ng-container>
+                    <ng-template  #loss ><b class="counter" style="color: #f01717;">Rs. {{net}}</b></ng-template>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-6 stats-grid-2" >
+                    <div class="stat-info">
+                        <h5 class="pt-2" > <b>YOU OWE </b></h5>
+                    </div>
+                    <div class="counter" style="color: #f01717;" ><b>Rs.{{-suml}}</b></div>
+                </div>
+
+                <div class="col-md-3 col-sm-6 col-6 stats-grid-3" >
+                    <div class="stat-info">
+                        <h5 class="pt-2"> <b>YOU ARE OWED</b> </h5>
+                    </div>
+                    <div class="counter" style="color: #50b93b;"><b>Rs.{{sumr}}</b></div>
+                </div>
+
+                <!-- <div class="col-md-3 col-sm-6 col-6 stats-grid-4">
+                        <div class=" stats-grid">
+                           <div class="btnstyle">
+                           <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#myModal" > <b>ADD EXPENSE</b> </button>
+                           <button type="button" class="btn btn-outline-info"> <b>SETTLE UP </b> </button>
+                           </div>
+                        </div>
+                     </div> -->
+
+        </div>
+               
+    </section>
+    
+
